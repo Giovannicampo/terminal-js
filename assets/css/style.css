@@ -1,0 +1,213 @@
+body, html, *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+}
+
+.bg>img{
+    width: 1980px;
+    height:1110px;
+    position: absolute;
+}
+
+.terminal{
+    display: inline-block;
+    position: absolute;
+    border: 1px solid #000;
+    background-color: #2d0922bc;
+    /* top: 200px;
+    left: 300px; */
+    width: 1100px;
+    height: 600px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    resize: both;
+    overflow:hidden;
+}
+
+.terminal .top-bar{
+    display: inline-block;
+    position: absolute;
+    border-bottom: 1px solid #000;
+    background-color: #222222;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    /* width: 1100px; */
+    /* height: 7%; */
+    height: 42px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.terminal .top-bar>.x>img{
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+
+.terminal .top-bar>.x>img:hover{
+    cursor: pointer;
+}
+
+.terminal .top-bar>.minus>img{
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 42px;
+}
+
+.terminal .top-bar>.minus>img:hover{
+    cursor: pointer;
+}
+
+.terminal .top-bar>.expand>.circle{
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 70px;
+}
+
+.terminal .top-bar>.expand>.square{
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    left: 75px;
+    width: 13px;
+    height:12px;
+}
+
+.terminal .top-bar>.expand:hover{
+    cursor: pointer;
+}
+
+.terminal .top-bar>.session-name{
+    display: inline-block;
+    position: absolute;
+    color: #fff;
+    top: 12px;
+    left: 130px;
+}
+
+.terminal .terminal-body{
+    display: inline-block;
+    position: absolute;
+    top: 42px;
+    left: 0px;
+}
+
+.terminal .terminal-body .command-line>.user{
+    display: inline-block;
+    position: absolute; 
+    top: 2px;
+    left: 1px;
+    color: #26A263;
+}
+.terminal .terminal-body .command-line>.path{
+    display: inline-block;
+    position: absolute; 
+    top: 2px;
+    left: 150px;
+    color: #13488B;
+}
+
+.terminal .terminal-body .command-line>.run{
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 165px;
+    color: #fff;
+}
+
+.terminal .terminal-body .command-line>input{
+    /* display: inline-block; */
+    position: relative;
+    border: none;
+    outline: none;
+    resize: none;
+    width: 100%;
+    top: 2px;
+    left: 180px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.terminal .terminal-body .command-line>.text{
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    /* color: #fff; */
+}
+
+.footer{
+    display: inline-block;
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid #3f3b3b;
+    background-color: #615c5c50;
+    top: 1032px;
+    left: 90px;
+    width: 1800px;
+    height: 72px;
+    border-radius: 15px;
+}
+
+.footer .terminal-icon img{
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 125px;
+    width: 65px;
+    height: 65px;
+}
+
+.footer .terminal-icon img:hover{
+    background: #30303098;
+    cursor: pointer;
+}
+
+/* .footer .terminal-icon.clone img:hover{
+    background: #440653bc;
+    cursor: pointer;
+} */
+
+.footer .trash-icon img{
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+.footer .trash-icon img:hover{
+    background: #30303098;
+    cursor: pointer;
+}
+
+.footer .application-icon img{
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 68px;
+    width: 50px;
+    height: 50px;
+}
+
+.footer .application-icon img:hover{
+    background: #30303098;
+    cursor: pointer;
+}
+
+.footer .line img{
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 200px;
+    width: 30px;
+    height: 65px;
+}
