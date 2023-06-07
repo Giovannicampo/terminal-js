@@ -86,7 +86,7 @@ class Terminal
     closeTerminal () {
         this.xButton.addEventListener("click", () =>{
             numOfOpenTerminals -= 1;
-            footer.removeChild(terminalIconList.pop().getObj());
+            footer.removeChild(terminalIconList[this.id].getObj());
             document.body.removeChild(this.newTerminal);
             this.newTerminal.id = -1;
             this.id = -2;
@@ -98,6 +98,10 @@ class Terminal
                     listIndex = max(max_temp,term.id) + 1;
                     // console.log("max trovato " + listIndex);
                 }
+            }
+            if(numOfOpenTerminals == 0){
+                terminalIconList = []
+                terminalList = []
             }
         })
     }
@@ -362,8 +366,8 @@ class Terminal
             numOfHiddenTerminals += 1;
             // iconList[iconizedIcon].style.backgroundColor = "#440653bc";
             // iconizedIcon += 1;
-            terminalIconList[numOfHiddenTerminals-1].getIcon().style.backgroundColor = "#440653bc";
-            terminalIconList[numOfHiddenTerminals-1].setIconed(true);
+            terminalIconList[this.id].getIcon().style.backgroundColor = "#440653bc";
+            terminalIconList[this.id].setIconed(true);
         })
     }
 
@@ -389,6 +393,10 @@ class Terminal
 
     setIsIconed (bool) {
         this.isIconed = bool;
+    }
+
+    getId () {
+        return this.id;
     }
 }
 
@@ -420,10 +428,12 @@ const main = () => {
             // console.log("id = " + newTerminal.getAttribute("id"));
             document.body.appendChild(newTerminal);
             listIndex += 1;
+            this.openNewTerminalIcon(terminal.getId());
+            console.log(terminal.getId());
             // console.log("New Terminal! There are currently " + terminalList.length + " terminals on!")
         },
-        openNewTerminalIcon: function () {
-            const terminalIcon = new TerminalIconClone();
+        openNewTerminalIcon: function (id) {
+            const terminalIcon = new TerminalIconClone(id);
             terminalIconList.push(terminalIcon);
             terminalIcon.init();
             let newTerminalIcon = terminalIcon.getObj();
@@ -433,7 +443,6 @@ const main = () => {
             this.terminalIcon.addEventListener("click", () => {
                 numOfOpenTerminals += 1;
                 this.openNewTerminal();
-                this.openNewTerminalIcon();
             })
 
             
@@ -447,10 +456,11 @@ window.onload = main;
 
 class TerminalIconClone 
 {
-    constructor () {
+    constructor (id) {
         this.newTerminalIcon = document.createElement("div");
         this.icon = document.createElement("img");
         this.isIconed = false;
+        this.id = id;
     }
 
     init () {
@@ -467,9 +477,11 @@ class TerminalIconClone
             if(this.isIconed){
                 this.icon.style.backgroundColor = "transparent";
                 this.isIconed = false;
-                if(terminalList[numOfHiddenTerminals-1].getIsIconed()){
-                    terminalList[numOfHiddenTerminals-1].getObj().style.display = 'inline-block';
-                    terminalList[numOfHiddenTerminals-1].setIsIconed(false);
+                if(terminalList[this.id].getIsIconed()){
+                    terminalList[this.id].getObj().style.display = 'inline-block';
+                    terminalList[this.id].getObj().style.zIndex = maxZindex;
+                    maxZindex += 1;
+                    terminalList[this.id].setIsIconed(false);
                 }
                 this.isIconed = false;
                 numOfHiddenTerminals -=1;
@@ -487,5 +499,13 @@ class TerminalIconClone
 
     setIconed (bool) {
         this.isIconed = bool;
+    }
+
+    getId () {
+        return this.id;
+    }
+
+    setId (id) {
+        this.id = id;
     }
 }
