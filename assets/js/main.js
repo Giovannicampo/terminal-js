@@ -292,10 +292,14 @@ class Terminal
                                     this.inputLine.style.color = `white`;
                                     colorText = "white";
                                 case 'clear':
+                                    response.innerHTML = "melo";
                                     enters = 27;
                                     break;
                                 case 'help':
                                     response.innerHTML = "color [0,1,2] text  <--> color bg [0,1,2] bg <--> whoami";
+                                    break;
+                                case 'melo':
+                                    response.innerHTML = "si zuccuru vita";
                                     break;
                                 default:
                                     response.innerHTML = "unknown command"
